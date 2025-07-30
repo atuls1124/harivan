@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta name="description" content="Buy, sell, and invest in premium real estate with Harivan.">
+	<meta name="keywords" content="real estate, land, investment, Harivan, buy property, sell property">
+	<meta name="author" content="Harivan Team">
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Harivan</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="buttons.css">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.css" />
+
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <h1><i class="fas fa-home"></i> Harivan</h1>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#buy">Buy</a></li>
+                <li><a href="#sell">Sell</a></li>
+                <li><a href="#invest">Invest</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section id="home" class="hero">
+            <div class="hero-content">
+                <h2>Find Your Perfect Plot of Land.</h2>
+                <p>Harivan solutions for buying, selling, and smart investments</p>
+                <div class="hero-buttons">
+                    <button class="cta-button primary">Explore Properties</button>
+                    <button class="cta-button secondary">Watch Our Story</button>
+                </div>
+            </div>
+               <div class="hero-video">
+                <video autoplay muted loop>
+                    <source src="https://cdn.pixabay.com/video/2023/02/09/149975-797471101_large.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+
+        </section>
+
+        <!-- Services Section -->
+        <section id="services" class="services">
+            <div class="container">
+                <h2>Our Core Services</h2>
+                <div class="services-grid">
+
+                    <div class="service-card" id="buy">
+                        <div class="service-icon">
+                            <i class="fas fa-search"></i>
+                        </div>
+                        <h3>Buy Land</h3>
+                        <p>Discover your perfect home from our extensive portfolio of premium properties across prime locations.</p>
+                        <ul>
+                            <li>Residential Properties</li>
+                            <li>Commercial Spaces</li>
+                            <li>Luxury Villas</li>
+                            <li>Apartments & Condos</li>
+                        </ul>
+                        <a href="buy-properties.html" class="service-btn">
+						  Browse Properties
+						</a>
+
+                    </div>
+                    
+                    <div class="service-card" id="sell">
+                        <div class="service-icon">
+                            <i class="fas fa-handshake"></i>
+                        </div>
+                        <h3>Sell Land</h3>
+                        <p>Get the best value for your property with our expert marketing strategies and professional guidance.</p>
+                        <ul>
+                            <li>Free Property Valuation</li>
+                            <li>Professional Analysis</li>
+                            <li>Market Analysis</li>
+                            <li>Expert Negotiation</li>
+                        </ul>
+                        <a href="sell-properties.html" class="service-btn">
+						  List Your Property
+						</a>
+                        
+                    </div>
+                    
+                    <div class="service-card" id="invest">
+                        <div class="service-icon">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <h3>Make Investments</h3>
+                        <p>Build wealth through strategic investments with our expert guidance and market insights.</p>
+                        <ul>
+                            <li>Investment Analysis</li>
+                            <li>ROI Calculations</li>
+                            <li>Market Trends</li>
+                            <li>Portfolio Management</li>
+                        </ul>
+                        <button class="service-btn">Start Investing</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- Property Showcase -->
+        <section class="property-showcase">
+            <div class="container">
+                <h2>Featured Properties</h2>
+                <div class="property-grid">
+                    <div class="property-card">
+                        <div class="property-image">
+                            <img src="https://images.unsplash.com/photo-1568605114967-8130f3a36994?w=400&h=300&fit=crop" alt="Luxury Villa">
+                            <div class="property-badge">For Sale</div>
+                            <div class="property-video-btn" data-video="VUoa94WUtWA" data-title="Luxury Modern Villa - Virtual Tour">
+                                <i class="fas fa-play"></i>
+                            </div>
+                        </div>
+                        <div class="property-info">
+                            <h4>Luxury Modern Villa</h4>
+                            <p><i class="fas fa-map-marker-alt"></i> Beverly Hills, CA</p>
+                            <div class="property-details">
+                                <span><i class="fas fa-bed"></i> 4 Beds</span>
+                                <span><i class="fas fa-bath"></i> 3 Baths</span>
+                                <span><i class="fas fa-ruler-combined"></i> 3,200 sqft</span>
+                            </div>
+                            <div class="property-price">$2,850,000</div>
+                        </div>
+                    </div>
+
+                    <div class="property-card">
+                        <div class="property-image">
+                            <img src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=400&h=300&fit=crop" alt="Modern Apartment">
+                            <div class="property-badge investment">Investment</div>
+                            <div class="property-video-btn" data-video="ScMzIvxBSi4" data-title="Downtown Penthouse - Property Walkthrough">
+                                <i class="fas fa-play"></i>
+                            </div>
+                        </div>
+                        <div class="property-info">
+                            <h4>Downtown Penthouse</h4>
+                            <p><i class="fas fa-map-marker-alt"></i> Manhattan, NY</p>
+                            <div class="property-details">
+                                <span><i class="fas fa-bed"></i> 3 Beds</span>
+                                <span><i class="fas fa-bath"></i> 2 Baths</span>
+                                <span><i class="fas fa-ruler-combined"></i> 2,100 sqft</span>
+                            </div>
+                            <div class="property-price">$1,950,000</div>
+                        </div>
+                    </div>
+
+                    <div class="property-card">
+                        <div class="property-image">
+                            <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=400&h=300&fit=crop" alt="Family Home">
+                            <div class="property-badge sold">Sold</div>
+                            <div class="property-video-btn" data-video="M7lc1UVf-VE" data-title="Suburban Family Home - Before Sale Tour">
+                                <i class="fas fa-play"></i>
+                            </div>
+                        </div>
+                        <div class="property-info">
+                            <h4>Suburban Family Home</h4>
+                            <p><i class="fas fa-map-marker-alt"></i> Austin, TX</p>
+                            <div class="property-details">
+                                <span><i class="fas fa-bed"></i> 5 Beds</span>
+                                <span><i class="fas fa-bath"></i> 4 Baths</span>
+                                <span><i class="fas fa-ruler-combined"></i> 4,500 sqft</span>
+                            </div>
+                            <div class="property-price">$875,000</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Map Section -->
+
+        <section class="map-section">
+            <div class="container">
+                <h2>Explore Properties by Location</h2>
+                <div class="map-container">
+                    <div class="map-placeholder">
+                        <div class="map-overlay">
+                            <h3></h3>
+                            <p>Discover properties in your preferred locations with our  map feature.</p>
+                            <div class="map-markers">
+                                <div class="marker" style="top: 30%; left: 25%;">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                    <div class="marker-info">
+                                        <span>Beverly Hills</span>
+                                        <span>$2.8M</span>
+                                    </div>
+                                </div>
+                                <div class="marker" style="top: 45%; left: 70%;">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                    <div class="marker-info">
+                                        <span>Manhattan</span>
+                                        <span>$1.9M</span>
+                                    </div>
+                                </div>
+
+                                <div class="marker" style="top: 60%; left: 50%;">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                    <div class="marker-info">
+                                        <span>Austin</span>
+                                        <span>$875K</span>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="map-filters">
+                        <button class="filter-btn active">All Properties</button>
+                        <button class="filter-btn">For Sale</button>
+                        <button class="filter-btn">For Rent</button>
+                        <button class="filter-btn">Investment</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Video Section -->
+
+        <section class="video-section">
+            <div class="container">
+                <h2>Why Choose Harivan?</h2>
+                <div class="video-content">
+                    <div class="video-player">
+                        <div class="youtube-container">
+                            <iframe 
+                                src="https://www.youtube.com/embed/VUoa94WUtWA?autoplay=1 && mute =1 " 
+                                title="Harivan - Our Story"
+                                frameborder="0" 
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                                allowfullscreen>
+                            </iframe>
+                        </div>
+                        <div class="video-playlist">
+
+                            <h4>More Videos</h4>
+                            <div class="playlist-item active" data-video="dQw4w9WgXcQ">
+                                <div class="playlist-thumbnail">
+                                    <img src="https://img.youtube.com/vi/dQw4w9WgXcQ/mqdefault.jpg" alt="Our Story">
+                                    <div class="play-overlay"><i class="fas fa-play"></i></div>
+                                </div>
+                                <div class="playlist-info">
+
+                                    <h5>Our Story</h5>
+                                    <p>Learn about Harivan's journey</p>
+                                </div>
+                            </div>
+                            <div class="playlist-item" data-video="ScMzIvxBSi4">
+                                <div class="playlist-thumbnail">
+                                    <img src="https://img.youtube.com/vi/ScMzIvxBSi4/mqdefault.jpg" alt="Property Tours">
+                                    <div class="play-overlay"><i class="fas fa-play"></i></div>
+                                </div>
+                                <div class="playlist-info">
+                                    <h5>Virtual Property Tours</h5>
+                                    <p>Explore properties remotely</p>
+                                </div>
+                            </div>
+                            <div class="playlist-item" data-video="M7lc1UVf-VE">
+                                <div class="playlist-thumbnail">
+                                    <img src="https://img.youtube.com/vi/M7lc1UVf-VE/mqdefault.jpg" alt="Investment Tips">
+                                    <div class="play-overlay"><i class="fas fa-play"></i></div>
+                                </div>
+                                <div class="playlist-info">
+                                    <h5>Investment Tips</h5>
+                                    <p>Smart real estate investing</p>
+                                </div>
+                            </div>
+                            <div class="playlist-item" data-video="kJQP7kiw5Fk">
+                                <div class="playlist-thumbnail">
+                                    <img src="https://img.youtube.com/vi/kJQP7kiw5Fk/mqdefault.jpg" alt="Client Testimonials">
+                                    <div class="play-overlay"><i class="fas fa-play"></i></div>
+                                </div>
+                                <div class="playlist-info">
+                                    <h5>Client Testimonials</h5>
+                                    <p>What our clients say</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="video-info">
+                        <h3>15+ Years of Excellence in Real Estate</h3>
+                        <p>Watch our story and discover why thousands of clients trust Harivan for their real estate needs.</p>
+                        <div class="video-features">
+                            <div class="feature-item">
+                                <i class="fas fa-video"></i>
+                                <div>
+                                    <h5>Virtual Tours</h5>
+                                    <p>Experience properties from anywhere</p>
+                                </div>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-graduation-cap"></i>
+                                <div>
+                                    <h5>Educational Content</h5>
+                                    <p>Learn about real estate investing</p>
+                                </div>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-users"></i>
+                                <div>
+                                    <h5>Client Stories</h5>
+                                    <p>Real experiences from real clients</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="stats">
+                            <div class="stat">
+                                <h4>2,500+</h4>
+                                <p>Properties Sold</p>
+                            </div>
+                            <div class="stat">
+                                <h4>95%</h4>
+                                <p>Client Satisfaction</p>
+                            </div>
+                            <div class="stat">
+                                <h4>$2.8B</h4>
+                                <p>Total Sales Volume</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+
+        <!-- About Section -->
+        <section id="about" class="about">
+            <div class="container">
+                <div class="about-content">
+                    <div class="about-text">
+                        <h2>About Harivan</h2>
+                        <p>With over 15 years of experience in the real estate industry, Harivan has established itself as a trusted name in premium property solutions. We specialize in helping clients buy, sell, and invest in properties that align with their dreams and financial goals.</p>
+                        <div class="about-features">
+                            <div class="feature">
+                                <i class="fas fa-award"></i>
+                                <h4>Award-Winning Service</h4>
+                                <p>Recognized for excellence in customer service and market expertise.</p>
+                            </div>
+                            <div class="feature">
+                                <i class="fas fa-users"></i>
+                                <h4>Expert Team</h4>
+                                <p>Professional agents with deep local market knowledge.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="about-image">
+                        <img src="https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=600&h=400&fit=crop" alt="Harivan Team">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="contact">
+            <div class="container">
+                <h2></h2>
+                <div class="contact-content">
+                    <div class="contact-info">
+                        <h3>Contact Information</h3>
+                        <div class="contact-item">
+                            <i class="fas fa-phone"></i>
+                            <div>
+                                <h4>Phone</h4>
+                                <p>+1 (555) 123-4567</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <div>
+                                <h4>Email</h4>
+                                <p>info@harivan.com</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <div>
+                                <h4>Office</h4>
+                                <p>Harivan, Karan Chauraha Sarai Akil  <br>Kaushambi ,Uttar Pradesh 212216</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="contact-form">
+                        <form>
+                        	<p>For inquiries, please fill out the form below.</p>
+
+                            <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSd3jUkrKIVGjnzjXwJT1VrvCTN_c2aQH6vysCH2ttj63PqSAQ/viewform?embedded=true" width="440" height="600" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3><i class="fas fa-home"></i> Harivan</h3>
+                    <p>Harivan - Your trusted partner .</p>
+                    <br>
+                    <br>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="bi bi-twitter-x"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                </div>
+             <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Services</h4>
+                    <ul>
+                        <li><a href="#buy">Buy Properties</a></li>
+                        <li><a href="#sell">Sell Properties</a></li>
+                        <li><a href="#invest">Investment</a></li>
+                        <li><a href="Property-management.html">Property Management</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                        <li><a href="privacy-policy.html">Privacy Policy</a></li>
+                        <li><a href="terms-of-service.html">Terms of Service</a></li>
+                    </ul>
+                </div>
+            </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Harivan . All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const hamburger = document.querySelector('.hamburger');
+        const navLinks = document.querySelector('.nav-links');
+        
+        hamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            hamburger.classList.toggle('active');
+        });
+
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Map filter functionality
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                filterBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+            });
+        });
+    </script>
+</body>
+</html>

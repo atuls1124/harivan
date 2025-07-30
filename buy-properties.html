@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buy Properties - Harivan Real Estate</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="buttons.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        /* Your existing CSS */
+        .property-listing-page {
+            padding: 120px 0 60px;
+            background: white;
+            min-height: 100vh;
+        }
+        
+        .page-header {
+            text-align: center;
+            margin-bottom: 3rem;
+            padding: 3rem 0;
+            background: linear-gradient(135deg, #5A7850 0%, #729E64 100%);
+            color: white;
+            border-radius: 15px;
+        }
+        
+        .page-header h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+        
+        .page-header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+        
+        .property-filters {
+            background: #F5F5DC;
+            padding: 2rem;
+            border-radius: 15px;
+            margin-bottom: 3rem;
+        }
+        
+        .filter-row {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+        
+        .filter-group {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .filter-group label {
+            color: #5A7850;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+        
+        .filter-group select,
+        .filter-group input {
+            padding: 0.8rem;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+        }
+        
+        .filter-group select:focus,
+        .filter-group input:focus {
+            outline: none;
+            border-color: #5A7850;
+        }
+        
+        .search-btn {
+            background: linear-gradient(135deg, #D2691E, #B8541A);
+            color: white;
+            padding: 0.8rem 2rem;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            align-self: end;
+        }
+        
+        .search-btn:hover {
+            background: linear-gradient(135deg, #B8541A, #A04715);
+            transform: translateY(-2px);
+        }
+        
+        .properties-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+        
+        .property-listing-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .property-listing-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .property-listing-image {
+            position: relative;
+            height: 250px;
+            overflow: hidden;
+        }
+        
+        .property-listing-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+        
+        .property-listing-card:hover .property-listing-image img {
+            transform: scale(1.05);
+        }
+        
+        .property-listing-badge {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            background: #D2691E;
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            z-index: 2; /* Ensure badge is above video-placeholder when not active */
+        }
+        
+        .property-listing-video-btn {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 60px;
+            height: 60px;
+            background: rgba(210, 105, 30, 0.9);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            opacity: 0;
+            border: 2px solid white;
+            z-index: 2; /* Ensure button is above video-placeholder when not active */
+        }
+        
+        .property-listing-card:hover .property-listing-video-btn {
+            opacity: 1;
+        }
+        
+        .property-listing-info {
+            padding: 1.5rem;
+        }
+        
+        .property-listing-title {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+            color: #5A7850;
+        }
+        
+        .property-listing-location {
+            color: #666;
+            margin-bottom: 1rem;
+        }
+        
+        .property-listing-details {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1rem;
+            font-size: 0.9rem;
+            color: #666;
+        }
+        
+        .property-listing-price {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #D2691E;
+            margin-bottom: 1rem;
+        }
+        
+        .property-listing-actions {
+            display: flex;
+            gap: 0.5rem;
+        }
+        
+        .contact-btn {
+            background: #5A7850;
+            color: white;
+            padding: 0.5rem 1rem;
+            border: none;
+            border-radius: 5px;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            flex: 1;
+        }
+        
+        .contact-btn:hover {
+            background: #4A6340;
+        }
+        
+        .favorite-btn {
+            background: transparent;
+            color: #D2691E;
+            border: 2px solid #D2691E;
+            padding: 0.5rem;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .favorite-btn:hover {
+            background: #D2691E;
+            color: white;
+        }
+        
+        .pagination {
+            display: flex;
+            justify-content: center;
+            gap: 0.5rem;
+            margin-top: 3rem;
+        }
+        
+        .pagination button {
+            padding: 0.8rem 1rem;
+            border: 2px solid #5A7850;
+            background: white;
+            color: #5A7850;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .pagination button:hover,
+        .pagination button.active {
+            background: #5A7850;
+            color: white;
+        }
+        
+        @media (max-width: 768px) {
+            .page-header h1 {
+                font-size: 2rem;
+            }
+            
+            .filter-row {
+                grid-template-columns: 1fr;
+            }
+            
+            .properties-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* ADDED CSS FOR VIDEO PLACEHOLDER */
+        .property-listing-image .video-placeholder {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: black; /* Or a subtle background */
+            display: none; /* Initially hidden */
+            justify-content: center;
+            align-items: center;
+            z-index: 10; /* Ensure it's on top of the image and button */
+        }
+
+        .property-listing-image .video-placeholder.active {
+            display: flex; /* Show when active */
+        }
+
+        .property-listing-image .video-placeholder iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        /* Optional: Hide the image and video button when video is playing */
+        .property-listing-image.video-active img {
+            display: none;
+        }
+        .property-listing-image.video-active .property-listing-video-btn {
+            display: none;
+        }
+        .property-listing-image.video-active .property-listing-badge {
+            display: none; /* Hide badge too if video covers everything */
+        }
+        /* End ADDED CSS */
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <h1><i class="fas fa-home"></i> Harivan</h1>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="buy-properties.html">Buy</a></li>
+                <li><a href="sell-properties.html">Sell</a></li>
+                <li><a href="investment-properties.html">Invest</a></li>
+                <li><a href="index.html#about">About</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+            </ul>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+    </header>
+
+    <main class="property-listing-page">
+        <div class="container">
+            <div class="page-header">
+                <h1><i class="fas fa-search"></i> Buy Properties</h1>
+                <p>Discover your perfect home from our extensive portfolio of premium properties</p>
+            </div>
+
+            <div class="property-filters">
+                <div class="filter-row">
+                    <div class="filter-group">
+                        <label for="location">Location</label>
+                        <select id="location">
+                            <option value="">All Locations</option>
+                            <option value="beverly-hills">Beverly Hills, CA</option>
+                            <option value="manhattan">Manhattan, NY</option>
+                            <option value="austin">Austin, TX</option>
+                            <option value="miami">Miami, FL</option>
+                            <option value="denver">Denver, CO</option>
+                        </select>
+                    </div>
+                    <div class="filter-group">
+                        <label for="property-type">Property Type</label>
+                        <select id="property-type">
+                            <option value="">All Types</option>
+                            <option value="villa">Villa</option>
+                            <option value="apartment">Apartment</option>
+                            <option value="penthouse">Penthouse</option>
+                            <option value="house">House</option>
+                            <option value="condo">Condo</option>
+                        </select>
+                    </div>
+                    <div class="filter-group">
+                        <label for="bedrooms">Bedrooms</label>
+                        <select id="bedrooms">
+                            <option value="">Any</option>
+                            <option value="1">1+</option>
+                            <option value="2">2+</option>
+                            <option value="3">3+</option>
+                            <option value="4">4+</option>
+                            <option value="5">5+</option>
+                        </select>
+                    </div>
+                    <div class="filter-group">
+                        <label for="min-price">Min Price</label>
+                        <input type="number" id="min-price" placeholder="Min Price" min="0">
+                    </div>
+                    <div class="filter-group">
+                        <label for="max-price">Max Price</label>
+                        <input type="number" id="max-price" placeholder="Max Price" min="0">
+                    </div>
+                    <div class="filter-group">
+                        <button class="search-btn">
+                            <i class="fas fa-search"></i> Search
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="properties-grid">
+
+                <div class="property-listing-card">
+                    <div class="property-listing-image">
+                        <img src="https://images.unsplash.com/photo-1568605114967-8130f3a36994?w=400&h=300&fit=crop" alt="Luxury Villa">
+                        <div class="property-listing-badge">For Sale</div>
+                        <div class="property-listing-video-btn" data-video="dQw4w9WgXcQ" data-title="Luxury Modern Villa - Virtual Tour">
+                            <i class="fas fa-play"></i>
+                        </div>
+                        <div class="video-placeholder"></div> </div>
+                    <div class="property-listing-info">
+                        <h3 class="property-listing-title">Luxury Modern Villa</h3>
+                        <p class="property-listing-location"><i class="fas fa-map-marker-alt"></i> Beverly Hills, CA</p>
+                        <div class="property-listing-details">
+                            <span><i class="fas fa-bed"></i> 4 Beds</span>
+                            <span><i class="fas fa-bath"></i> 3 Baths</span>
+                            <span><i class="fas fa-ruler-combined"></i> 3,200 sqft</span>
+                        </div>
+                        <div class="property-listing-price">$2,850,000</div>
+                        <div class="property-listing-actions">
+                            <button class="contact-btn">Contact Agent</button>
+                            <button class="favorite-btn"><i class="fas fa-heart"></i></button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="property-listing-card">
+                    <div class="property-listing-image">
+                        <img src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=400&h=300&fit=crop" alt="Modern Apartment">
+                        <div class="property-listing-badge">For Sale</div>
+                        <div class="property-listing-video-btn" data-video="ScMzIvxBSi4" data-title="Downtown Penthouse - Property Walkthrough">
+                            <i class="fas fa-play"></i>
+                        </div>
+                        <div class="video-placeholder"></div> </div>
+                    <div class="property-listing-info">
+                        <h3 class="property-listing-title">Downtown Penthouse</h3>
+                        <p class="property-listing-location"><i class="fas fa-map-marker-alt"></i> Manhattan, NY</p>
+                        <div class="property-listing-details">
+                            <span><i class="fas fa-bed"></i> 3 Beds</span>
+                            <span><i class="fas fa-bath"></i> 2 Baths</span>
+                            <span><i class="fas fa-ruler-combined"></i> 2,100 sqft</span>
+                        </div>
+                        <div class="property-listing-price">$1,950,000</div>
+                        <div class="property-listing-actions">
+                            <button class="contact-btn">Contact Agent</button>
+                            <button class="favorite-btn"><i class="fas fa-heart"></i></button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="property-listing-card">
+                    <div class="property-listing-image">
+                        <img src="https://images.unsplash.com/photo-1570129476813-f61765c52c67?w=400&h=300&fit=crop" alt="Cozy Family House">
+                        <div class="property-listing-badge">For Sale</div>
+                        <div class="property-listing-video-btn" data-video="M7lc1UVf-VE" data-title="Cozy Family House - Virtual Tour">
+                            <i class="fas fa-play"></i>
+                        </div>
+                        <div class="video-placeholder"></div>
+                    </div>
+                    <div class="property-listing-info">
+                        <h3 class="property-listing-title">Cozy Family House</h3>
+                        <p class="property-listing-location"><i class="fas fa-map-marker-alt"></i> Austin, TX</p>
+                        <div class="property-listing-details">
+                            <span><i class="fas fa-bed"></i> 4 Beds</span>
+                            <span><i class="fas fa-bath"></i> 2.5 Baths</span>
+                            <span><i class="fas fa-ruler-combined"></i> 2,800 sqft</span>
+                        </div>
+                        <div class="property-listing-price">$750,000</div>
+                        <div class="property-listing-actions">
+                            <button class="contact-btn">Contact Agent</button>
+                            <button class="favorite-btn"><i class="fas fa-heart"></i></button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="property-listing-card">
+                    <div class="property-listing-image">
+                        <img src="https://images.unsplash.com/photo-1512917774080-bd792372c219?w=400&h=300&fit=crop" alt="Luxury Beachfront Condo">
+                        <div class="property-listing-badge">For Sale</div>
+                        <div class="property-listing-video-btn" data-video="o-s98p3L-7U" data-title="Beachfront Condo - Property Tour">
+                            <i class="fas fa-play"></i>
+                        </div>
+                        <div class="video-placeholder"></div>
+                    </div>
+                    <div class="property-listing-info">
+                        <h3 class="property-listing-title">Luxury Beachfront Condo</h3>
+                        <p class="property-listing-location"><i class="fas fa-map-marker-alt"></i> Miami, FL</p>
+                        <div class="property-listing-details">
+                            <span><i class="fas fa-bed"></i> 2 Beds</span>
+                            <span><i class="fas fa-bath"></i> 2 Baths</span>
+                            <span><i class="fas fa-ruler-combined"></i> 1,400 sqft</span>
+                        </div>
+                        <div class="property-listing-price">$1,200,000</div>
+                        <div class="property-listing-actions">
+                            <button class="contact-btn">Contact Agent</button>
+                            <button class="favorite-btn"><i class="fas fa-heart"></i></button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="property-listing-card">
+                    <div class="property-listing-image">
+                        <img src="https://images.unsplash.com/photo-1582268155577-fb5782787c88?w=400&h=300&fit=crop" alt="Spacious Suburban House">
+                        <div class="property-listing-badge">For Sale</div>
+                        <div class="property-listing-video-btn" data-video="L-g2V84F4aA" data-title="Suburban House Walkthrough">
+                            <i class="fas fa-play"></i>
+                        </div>
+                        <div class="video-placeholder"></div>
+                    </div>
+                    <div class="property-listing-info">
+                        <h3 class="property-listing-title">Spacious Suburban House</h3>
+                        <p class="property-listing-location"><i class="fas fa-map-marker-alt"></i> Denver, CO</p>
+                        <div class="property-listing-details">
+                            <span><i class="fas fa-bed"></i> 5 Beds</span>
+                            <span><i class="fas fa-bath"></i> 3.5 Baths</span>
+                            <span><i class="fas fa-ruler-combined"></i> 4,000 sqft</span>
+                        </div>
+                        <div class="property-listing-price">$980,000</div>
+                        <div class="property-listing-actions">
+                            <button class="contact-btn">Contact Agent</button>
+                            <button class="favorite-btn"><i class="fas fa-heart"></i></button>
+                        </div>
+                    </div>
+                </div>
+
+                </div>
+            
+            <div class="pagination">
+                <button class="active">1</button>
+                <button>2</button>
+                <button>3</button>
+                <button>Next <i class="fas fa-arrow-right"></i></button>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Harivan Real Estate. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const videoButtons = document.querySelectorAll('.property-listing-video-btn');
+
+            videoButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const videoId = this.dataset.video;
+                    const videoTitle = this.dataset.title || 'Property Virtual Tour'; // Default title
+
+                    // Find the parent .property-listing-image and then its .video-placeholder
+                    const propertyImageContainer = this.closest('.property-listing-image');
+                    const videoPlaceholder = propertyImageContainer.querySelector('.video-placeholder');
+
+                    if (videoId && videoPlaceholder && propertyImageContainer) {
+                        // Create an iframe
+                        const iframe = document.createElement('iframe');
+                        iframe.setAttribute('src', `https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0`);
+                        iframe.setAttribute('frameborder', '0');
+                        iframe.setAttribute('allow', 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture');
+                        iframe.setAttribute('allowfullscreen', '');
+                        iframe.setAttribute('title', videoTitle);
+
+                        // Clear any existing content and append the new iframe
+                        videoPlaceholder.innerHTML = '';
+                        videoPlaceholder.appendChild(iframe);
+
+                        // Add a class to show the video placeholder and optionally hide other elements
+                        videoPlaceholder.classList.add('active');
+                        propertyImageContainer.classList.add('video-active');
+                    } else {
+                        console.error('Video ID, placeholder, or image container not found for button:', this);
+                    }
+                });
+            });
+        });
+    </script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const hamburger = document.querySelector('.hamburger');
+            const navLinks = document.querySelector('.nav-links');
+
+            if (hamburger && navLinks) {
+                hamburger.addEventListener('click', () => {
+                    navLinks.classList.toggle('nav-active');
+                    hamburger.classList.toggle('toggle');
+                });
+            }
+        });
+    </script>
+</body>
+</html>
